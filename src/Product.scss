@@ -1,0 +1,249 @@
+@import "./variables";
+
+.product {
+  display: flex;
+  align-items: center;
+  width: 75%;
+  margin: 3.125rem auto 0;
+  gap: 7.8125rem;
+
+  @media screen and (max-width: 75rem) {
+    flex-direction: column;
+    gap: 4.6875rem;
+    margin-bottom: 3.125rem;
+  }
+
+  @media screen and (max-width: 36rem) {
+    width: 80%;
+    gap: 3.125rem;
+  }
+
+  .product__images {
+    @media screen and (max-width: 36rem) {
+      width: 100%;
+    }
+
+    .product__mainImage {
+      flex: 1;
+      height: 28.125rem;
+      background: url("./assets/images/image-product-1.jpg") no-repeat center
+        center/cover;
+      margin-bottom: 1.25rem;
+      border-radius: 0.625rem;
+      position: relative;
+      transition: 0.25s ease-in-out;
+
+      @media screen and (max-width: 75rem) {
+        height: 37.5rem;
+      }
+
+      @media screen and (max-width: 36rem) {
+        height: 28.125rem;
+      }
+
+      .product__previous,
+      .product__next {
+        display: none;
+
+        @media screen and (max-width: 36rem) {
+          display: block;
+          position: absolute;
+          transform: translateY(-50%);
+          background: $white;
+          width: 2.5rem;
+          height: 2.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          border-radius: 50%;
+          cursor: pointer;
+        }
+      }
+
+      .product__previous {
+        top: 50%;
+        left: 2.5%;
+      }
+
+      .product__next {
+        top: 50%;
+        right: 2.5%;
+      }
+    }
+
+    .product__imageCards {
+      display: flex;
+      gap: 1.25rem;
+
+      @media screen and (max-width: 75rem) {
+        gap: 1.875rem;
+      }
+
+      .product__imageCard {
+        flex: 0.25;
+        cursor: pointer;
+        border-radius: 0.625rem;
+        transition: 0.25s ease-in-out;
+
+        &.selected {
+          outline: 0.3125rem solid $orange;
+          border-radius: 0.9375rem;
+
+          @media screen and (max-width: 36rem) {
+            outline: none;
+            border-radius: none;
+          }
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 0.625rem;
+
+          @media screen and (max-width: 36rem) {
+            display: none;
+          }
+        }
+
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+
+  .product__content {
+    .product__company {
+      display: block;
+      text-transform: uppercase;
+      color: $orange;
+      font-weight: 700;
+      letter-spacing: 0.1563rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .product__title {
+      color: $very-dark-blue;
+      font-size: 3rem;
+      line-height: 1;
+      margin-bottom: 2.5rem;
+
+      @media screen and (max-width: 36rem) {
+        font-size: 2rem;
+        margin-bottom: 1.875rem;
+      }
+    }
+
+    .product__description {
+      color: $dark-grayish-blue;
+      line-height: 1.5;
+      margin-bottom: 1.875rem;
+      width: 85%;
+    }
+
+    .product__price {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 0.3125rem;
+
+      .product__currentPrice {
+        font-size: 2rem;
+        color: $very-dark-blue;
+        font-weight: 700;
+      }
+
+      .product__discount {
+        background: $pale-orange;
+        color: $orange;
+        font-weight: 700;
+        padding: 0.3125rem 0.625rem;
+        border-radius: 0.3125rem;
+      }
+    }
+
+    .product__discountedPrice {
+      display: block;
+      color: $grayish-blue;
+      text-decoration: line-through;
+      font-weight: 700;
+      font-size: 1.125rem;
+      margin-bottom: 3.125rem;
+
+      @media screen and (max-width: 36rem) {
+        margin-bottom: 1.875rem;
+      }
+    }
+
+    .product__cart {
+      display: flex;
+      align-items: center;
+      gap: 0.9375rem;
+
+      @media screen and (max-width: 36rem) {
+        flex-direction: column;
+      }
+
+      .product__cartItems {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2.5rem;
+        background: $light-grayish-blue;
+        padding: 1.25rem 0.625rem;
+        flex: 0.25;
+        border-radius: 0.3125rem;
+        flex: 0.3;
+
+        @media screen and (max-width: 36rem) {
+          width: 100%;
+        }
+
+        span {
+          font-weight: 700;
+        }
+
+        img {
+          cursor: pointer;
+
+          &:active {
+            transform: scale(0.92);
+          }
+        }
+      }
+
+      .product__addToCart {
+        border: none;
+        outline: none;
+        background: $orange;
+        color: $white;
+        font-weight: 700;
+        letter-spacing: 0.0625rem;
+        flex: 0.7;
+        padding: 1.25rem 0;
+        border-radius: 0.625rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.9375rem;
+        text-align: center;
+        transition: 0.25s ease-in-out;
+
+        @media screen and (max-width: 75rem) {
+          flex: 0.5;
+        }
+
+        @media screen and (max-width: 36rem) {
+          width: 100%;
+        }
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}

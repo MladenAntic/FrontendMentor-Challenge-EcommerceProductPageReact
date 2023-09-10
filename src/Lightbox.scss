@@ -1,0 +1,126 @@
+@import "./variables";
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  place-items: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: $black;
+    opacity: 0.75;
+
+    -webkit-animation: fade-in 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+    animation: fade-in 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  }
+
+  .lightbox__gallery {
+    z-index: 10;
+    position: relative;
+
+    .lightbox__close {
+      position: absolute;
+      top: -7%;
+      right: 0;
+      cursor: pointer;
+      width: 1.25rem;
+    }
+
+    .lightbox__image {
+      width: 28.125rem;
+      height: 28.125rem;
+      background: url("./assets/images/image-product-1.jpg") no-repeat center
+        center/cover;
+      margin-bottom: 1.875rem;
+      border-radius: 0.9375rem;
+      position: relative;
+      transition: 0.25s ease-in-out;
+
+      .lightbox__previous,
+      .lightbox__next {
+        display: block;
+        position: absolute;
+        transform: translateY(-50%);
+        background: $white;
+        width: 2.5rem;
+        height: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      .lightbox__previous {
+        top: 50%;
+        left: 2.5%;
+      }
+
+      .lightbox__next {
+        top: 50%;
+        right: 2.5%;
+      }
+    }
+
+    .lightbox__cards {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+
+      .lightbox__card {
+        width: 4.6875rem;
+        height: 4.6875rem;
+        border-radius: 0.625rem;
+        cursor: pointer;
+        position: relative;
+        transition: 0.25s ease-in-out;
+
+        &.selected {
+          outline: 0.3125rem solid $orange;
+          border-radius: 0.9375rem;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          background: $white;
+          z-index: 10;
+          opacity: 0.5;
+          border-radius: 0.625rem;
+          -webkit-animation: fade-in-lightbox 0.75s
+            cubic-bezier(0.39, 0.575, 0.565, 1) both;
+          animation: fade-in-lightbox 0.75s cubic-bezier(0.39, 0.575, 0.565, 1)
+            both;
+
+          display: none;
+        }
+
+        &:hover {
+          &::before {
+            display: block;
+          }
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          border-radius: 0.625rem;
+        }
+      }
+    }
+  }
+}
