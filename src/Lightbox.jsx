@@ -64,6 +64,7 @@ const Lightbox = () => {
 
   function selectThumb1() {
     if (thumbnail1 === "lightbox__card") {
+      setCount(1);
       setThumbnail1("lightbox__card selected");
 
       setThumbnail2("lightbox__card");
@@ -76,6 +77,7 @@ const Lightbox = () => {
 
   function selectThumb2() {
     if (thumbnail2 === "lightbox__card") {
+      setCount(2);
       setThumbnail2("lightbox__card selected");
 
       setThumbnail1("lightbox__card");
@@ -88,6 +90,7 @@ const Lightbox = () => {
 
   function selectThumb3() {
     if (thumbnail3 === "lightbox__card") {
+      setCount(3);
       setThumbnail3("lightbox__card selected");
 
       setThumbnail1("lightbox__card");
@@ -100,6 +103,7 @@ const Lightbox = () => {
 
   function selectThumb4() {
     if (thumbnail4 === "lightbox__card") {
+      setCount(4);
       setThumbnail4("lightbox__card selected");
 
       setThumbnail1("lightbox__card");
